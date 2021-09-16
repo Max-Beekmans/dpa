@@ -1,5 +1,0 @@
-C:\Users\MaxBe\Documents\GitHub\dpa\obj\Debug\net5.0\dpa.csproj.AssemblyReference.cache
-C:\Users\MaxBe\Documents\GitHub\dpa\obj\Debug\net5.0\dpa.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\MaxBe\Documents\GitHub\dpa\obj\Debug\net5.0\dpa.AssemblyInfoInputs.cache
-C:\Users\MaxBe\Documents\GitHub\dpa\obj\Debug\net5.0\dpa.AssemblyInfo.cs
-C:\Users\MaxBe\Documents\GitHub\dpa\obj\Debug\net5.0\dpa.csproj.CoreCompileInputs.cache
