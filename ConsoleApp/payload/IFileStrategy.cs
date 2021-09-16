@@ -1,4 +1,7 @@
-public interface IFileStrategy : IStrategy
+namespace PayloadStrategy
 {
-    string GetPayload();
+    public interface IFileStrategy : IStrategy
+    {
+        string GetPayload(string location);
+    }
 }

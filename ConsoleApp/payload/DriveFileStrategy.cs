@@ -1,7 +1,10 @@
-public class DriveFileStrategy : IFileStrategy
+namespace PayloadStrategy
 {
-    public string GetPayload()
+    public class DriveFileStrategy : IFileStrategy
     {
-        throw new System.NotImplementedException();
+        public string GetPayload(string location)
+        {
+            return System.IO.File.ReadAllText(location);
+        }
     }
 }
