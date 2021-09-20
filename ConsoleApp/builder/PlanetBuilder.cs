@@ -7,7 +7,7 @@ namespace Builder {
         public PlanetBuilder()
         {
             Current = new Planet();
-            Current.SubType = typeof(Astroid);
+            Current.Type = typeof(Planet);
         }
 
         public override ICelestialBodyBuilder AddStateContext(StateContext context)
@@ -17,24 +17,9 @@ namespace Builder {
             return this;
         }
 
-        public override ICelestialBodyBuilder SetColor(string color)
+        public override ICelestialBodyBuilder SetName(string name)
         {
-            Current.Color = color;
-
-            return this;
-        }
-
-        public override ICelestialBodyBuilder SetRadius(int radius)
-        {
-            Current.Radius = radius;
-
-            return this;
-        }
-
-        public override ICelestialBodyBuilder SetSpeed(double vx, double vy)
-        {
-            Current.Vx = vx;
-            Current.Vy = vy;
+            ((Planet) Current).Name = name;
 
             return this;
         }

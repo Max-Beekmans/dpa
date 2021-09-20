@@ -1,5 +1,6 @@
-﻿using Builder;
-using Model;
+﻿
+using ParserStrategy;
+using PayloadStrategy;
 
 namespace ConsoleTestApp
 {
@@ -9,13 +10,19 @@ namespace ConsoleTestApp
         {
             const string csvRemoteLocation = "https://firebasestorage.googleapis.com/v0/b/dpa-files.appspot.com/o/planetsExtended.csv?alt=media";
             const string xmlRemoteLocation = "https://firebasestorage.googleapis.com/v0/b/dpa-files.appspot.com/o/planetsExtended.xml?alt=media";
-            const string csvFileLocation = "./InputFiles/planets.csv";
-            const string xmlFileLocation = "./InputFiles/planets.xml";
+            const string csvFileLocation = "../input/planets.csv";
+            const string xmlFileLocation = "../input/planets.xml";
 
-            BodyBuilderContext context = new BodyBuilderContext();
+            IFileStrategy fileStrategy = new DriveFileStrategy();
+            IFileStrategy fileStrategy2 = new HttpFilterStrategy();
 
-            ICelestialBody planet = context.BuildPlanet(45, 310, 0.3, -0.6, 7, "Blue");
-            ICelestialBody astroid = context.BuildAstroid(85, 56, 0, -1.5);
+            var payload = fileStrategy.GetPayload(csvFileLocation);
+            var payload2 = fileStrategy2.GetPayload(csvRemoteLocation);
+
+            IParseStrategy parseStrategy = new CsvParser();
+
+            var galaxy = parseStrategy.ParsePayload(payload);
+            var galaxy2 = parseStrategy.ParsePayload(payload2);
         }
     }
 }

@@ -4,8 +4,10 @@ namespace Model
 {
     public interface ICelestialBody
     {
+        [Parse("x")]
         int XPos { get; set; }
 
+        [Parse("y")]
         int YPos { get; set; }
 
         double Vx { get; set; }
@@ -16,7 +18,7 @@ namespace Model
 
         string Color { get; set; }
 
-        Type SubType { get; set; }
+        Type Type { get; set; }
 
         void Introduce();
     }

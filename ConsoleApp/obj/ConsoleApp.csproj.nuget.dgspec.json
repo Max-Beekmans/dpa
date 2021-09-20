@@ -1,25 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mxb\\Documents\\repos\\dpa\\ConsoleApp\\ConsoleApp.csproj": {}
+    "C:\\Users\\MaxBe\\Documents\\GitHub\\dpa\\ConsoleApp\\ConsoleApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mxb\\Documents\\repos\\dpa\\ConsoleApp\\ConsoleApp.csproj": {
+    "C:\\Users\\MaxBe\\Documents\\GitHub\\dpa\\ConsoleApp\\ConsoleApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mxb\\Documents\\repos\\dpa\\ConsoleApp\\ConsoleApp.csproj",
+        "projectUniqueName": "C:\\Users\\MaxBe\\Documents\\GitHub\\dpa\\ConsoleApp\\ConsoleApp.csproj",
         "projectName": "ConsoleApp",
-        "projectPath": "C:\\Users\\mxb\\Documents\\repos\\dpa\\ConsoleApp\\ConsoleApp.csproj",
-        "packagesPath": "C:\\Users\\mxb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mxb\\Documents\\repos\\dpa\\ConsoleApp\\obj\\",
+        "projectPath": "C:\\Users\\MaxBe\\Documents\\GitHub\\dpa\\ConsoleApp\\ConsoleApp.csproj",
+        "packagesPath": "C:\\Users\\MaxBe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MaxBe\\Documents\\GitHub\\dpa\\ConsoleApp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\mxb\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\MaxBe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -52,7 +57,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

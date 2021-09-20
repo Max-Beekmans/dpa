@@ -16,8 +16,7 @@ namespace Model
         public int Radius { get; set; }
 
         public string Color { get; set; }
-
-        public Type SubType { get; set; }
+        public Type Type { get; set; }
 
         protected Body()
         {
@@ -41,7 +40,7 @@ namespace Model
             this.Vy = vy;
             this.Radius = radius;
             this.Color = color;
-            this.SubType = type;
+            this.Type = type;
         }
 
         public abstract void Introduce();

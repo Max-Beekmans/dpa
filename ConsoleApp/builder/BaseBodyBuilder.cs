@@ -8,6 +8,8 @@ namespace Builder {
 
         public abstract ICelestialBodyBuilder AddStateContext(StateContext context);
 
+        public abstract ICelestialBodyBuilder SetName(string name);
+
         public ICelestialBody GetResult() {
             return Current;
         }

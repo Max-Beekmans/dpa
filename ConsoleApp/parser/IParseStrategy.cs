@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Builder;
 using Model;
 
@@ -5,10 +6,8 @@ namespace ParserStrategy
 {
     public interface IParseStrategy : IStrategy
     {
-        BodyBuilderContext BuildContext { get; set; }
+        BuildDirector BuildDirector { get; set; }
 
-        Galaxy ParseString(string payload, BodyBuilderContext buildContext = null);
-
-        ICelestialBody ParseLine(string payload, BodyBuilderContext buildContext = null);
+        Galaxy ParsePayload(string payload);
     }
 }

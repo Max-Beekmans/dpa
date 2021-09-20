@@ -6,10 +6,8 @@ public class AstroidBuilder : BaseBodyBuilder
 {
     public AstroidBuilder()
     {
-        this.Current = new Astroid();
-        this.Current.SubType = typeof(Astroid);
-        this.SetColor("Black");
-        this.SetRadius(5);
+        Current = new Astroid();
+        Current.Type = typeof(Astroid);
     }
 
     public override ICelestialBodyBuilder AddStateContext(StateContext context)
@@ -17,5 +15,20 @@ public class AstroidBuilder : BaseBodyBuilder
         ((Astroid) Current).StateContext = context;
 
         return this;
+    }
+
+    public override ICelestialBodyBuilder SetName(string name)
+    {
+        return this;
+    }
+
+    public override ICelestialBodyBuilder SetColor(string color)
+    {
+        return base.SetColor("Black");
+    }
+
+    public override ICelestialBodyBuilder SetRadius(int radius)
+    {
+        return base.SetRadius(5);
     }
 }

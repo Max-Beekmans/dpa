@@ -4,6 +4,11 @@ namespace Model
 {
     public class Galaxy
     {
-        public IEnumerable<ICelestialBody> bodies { get; set; }
+        public IEnumerable<ICelestialBody> Bodies { get; set; }
+
+        public Galaxy(IEnumerable<ICelestialBody> bodies)
+        {
+            this.Bodies = bodies;
+        }
     }
 }

@@ -4,7 +4,11 @@ namespace Model
 {
     public class Planet : Body
     {
-        public Planet() {}
+        public string Name { get; set; }
+
+        public Planet()
+        {
+        }
 
         // public Planet(
         //     int xpos,
@@ -17,7 +21,6 @@ namespace Model
         //     base(xpos, ypos, vx, vy, radius, color, typeof(Planet))
         // {
         // }
-
         public override void Introduce()
         {
             Console.WriteLine($"I'm a {typeof (Planet)}");

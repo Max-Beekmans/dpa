@@ -1,15 +1,21 @@
+using System.Collections.Generic;
+using System.Reflection;
 using Model;
 
 namespace Builder
 {
     public class BodyBuilderContext
     {
+        private BuildDirector _director;
+
         public BodyBuilderContext()
         {
+            _director = new BuildDirector();
         }
 
         public Planet
         BuildPlanet(
+            string name,
             int xpos,
             int ypos,
             double vx,
@@ -18,24 +24,20 @@ namespace Builder
             string color
         )
         {
+            _director.ChangeBuilder(new PlanetBuilder());
+
             return (Planet)
-            new PlanetBuilder()
-                .SetCoords(xpos, ypos)
-                .SetSpeed(vx, vy)
-                .SetRadius(radius)
-                .SetColor(color)
-                .GetResult();
+            _director
+                .Make(nameof(Planet), name, xpos, ypos, vx, vy, radius, color);
         }
 
         public Astroid BuildAstroid(int xpos, int ypos, double vx, double vy)
         {
+            _director.ChangeBuilder(new AstroidBuilder());
+
             return (Astroid)
-            new AstroidBuilder()
-                .SetCoords(xpos, ypos)
-                .SetSpeed(vx, vy)
-                .SetRadius(5)
-                .SetColor("Black")
-                .GetResult();
+            _director
+                .Make(nameof(Astroid), null, xpos, ypos, vx, vy, 0, null);
         }
     }
 }

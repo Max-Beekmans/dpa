@@ -9,6 +9,8 @@ namespace Builder
 
         ICelestialBodyBuilder AddStateContext(StateContext context);
 
+        ICelestialBodyBuilder SetName(string name);
+
         ICelestialBodyBuilder SetCoords(int xpos, int ypos);
 
         ICelestialBodyBuilder SetSpeed(double vx, double vy);

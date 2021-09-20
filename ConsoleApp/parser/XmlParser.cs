@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Builder;
 using Model;
 
@@ -5,20 +6,15 @@ namespace ParserStrategy
 {
     public class XmlParser : IParseStrategy
     {
-        public BodyBuilderContext BuildContext { get; set; }
+        public BuildDirector BuildDirector { get; set; }
 
         public XmlParser() { }
 
-        public XmlParser(BodyBuilderContext context) {
-            BuildContext = context;
+        public XmlParser(BuildDirector director) {
+            BuildDirector = director;
         }
 
-        public ICelestialBody ParseLine(string payload, BodyBuilderContext buildContext = null)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Galaxy ParseString(string payload, BodyBuilderContext buildContext = null)
+        public Galaxy ParsePayload(string payload)
         {
             throw new System.NotImplementedException();
         }
