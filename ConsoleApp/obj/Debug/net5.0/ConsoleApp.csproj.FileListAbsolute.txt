@@ -30,3 +30,5 @@ C:\Users\MaxBe\Documents\GitHub\dpa\ConsoleApp\obj\Debug\net5.0\ConsoleApp.dll
 C:\Users\MaxBe\Documents\GitHub\dpa\ConsoleApp\obj\Debug\net5.0\ref\ConsoleApp.dll
 C:\Users\MaxBe\Documents\GitHub\dpa\ConsoleApp\obj\Debug\net5.0\ConsoleApp.pdb
 C:\Users\MaxBe\Documents\GitHub\dpa\ConsoleApp\obj\Debug\net5.0\ConsoleApp.genruntimeconfig.cache
+C:\Users\MaxBe\Documents\GitHub\dpa\ConsoleApp\bin\Debug\net5.0\input\planets.csv
+C:\Users\MaxBe\Documents\GitHub\dpa\ConsoleApp\bin\Debug\net5.0\input\planets.xml

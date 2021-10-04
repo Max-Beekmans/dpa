@@ -1,0 +1,97 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0-windows7.0": {
+      "ConsoleApp/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/ConsoleApp.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ConsoleApp.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ConsoleApp/1.0.0": {
+      "type": "project",
+      "path": "../ConsoleApp/ConsoleApp.csproj",
+      "msbuildProject": "../ConsoleApp/ConsoleApp.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0-windows7.0": [
+      "ConsoleApp >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\MaxBe\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\MaxBe\\Documents\\GitHub\\dpa\\GalaxyApp\\GalaxyApp.csproj",
+      "projectName": "GalaxyApp",
+      "projectPath": "C:\\Users\\MaxBe\\Documents\\GitHub\\dpa\\GalaxyApp\\GalaxyApp.csproj",
+      "packagesPath": "C:\\Users\\MaxBe\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MaxBe\\Documents\\GitHub\\dpa\\GalaxyApp\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\MaxBe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0-windows7.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "projectReferences": {
+            "C:\\Users\\MaxBe\\Documents\\GitHub\\dpa\\ConsoleApp\\ConsoleApp.csproj": {
+              "projectPath": "C:\\Users\\MaxBe\\Documents\\GitHub\\dpa\\ConsoleApp\\ConsoleApp.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0-windows7.0": {
+        "targetAlias": "net5.0-windows",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WPF": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
