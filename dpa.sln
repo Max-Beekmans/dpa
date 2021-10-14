@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{DCD6771B-2E2A-4CB3-A608-A747C8D642A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GalaxyConsole", "GalaxyConsole\GalaxyConsole.csproj", "{DCD6771B-2E2A-4CB3-A608-A747C8D642A9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GalaxyApp", "GalaxyApp\GalaxyApp.csproj", "{22ECF93A-3444-4BC5-AF36-5B7841D88B6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GalaxyWindow", "GalaxyWindow\GalaxyWindow.csproj", "{22ECF93A-3444-4BC5-AF36-5B7841D88B6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GalaxyLib", "GalaxyLib\GalaxyLib.csproj", "{03341FA6-75B3-417E-97A1-85CB98934E48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GalaxyLib", "GalaxyLib\GalaxyLib.csproj", "{03341FA6-75B3-417E-97A1-85CB98934E48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

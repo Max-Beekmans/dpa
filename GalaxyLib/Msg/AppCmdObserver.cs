@@ -8,10 +8,12 @@ namespace GalaxyLib.Msg
     {
         public void Update(ISubject subject)
         {
-            if (subject is ICommand)
+            Console.WriteLine("Update obs");
+
+            /*if (subject is ICommand)
             {
                 ((ICommand) subject).Execute();
-            }
+            }*/
         }
     }
 }

@@ -1,8 +1,7 @@
-using System.Collections.Generic;
-using Builder;
-using Model;
+using GalaxyLib.Builder;
+using GalaxyLib.Model;
 
-namespace ParserStrategy
+namespace GalaxyLib.Parser
 {
     public class XmlParser : IParseStrategy
     {

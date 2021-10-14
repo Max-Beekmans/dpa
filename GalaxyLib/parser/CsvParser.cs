@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Builder;
-using Model;
+using GalaxyLib.Builder;
+using GalaxyLib.Model;
 
-namespace ParserStrategy
+namespace GalaxyLib.Parser
 {
     public class CsvParser : IParseStrategy
     {
@@ -90,7 +90,7 @@ namespace ParserStrategy
                     BuildDirector.ChangeBuilder(new PlanetBuilder());
                     break;
                 case "asteroid":
-                    BuildDirector.ChangeBuilder(new AstroidBuilder());
+                    BuildDirector.ChangeBuilder(new AsteroidBuilder());
                     break;
                 default:
                     throw new System.Exception("Unknown type");

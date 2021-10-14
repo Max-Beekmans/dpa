@@ -1,0 +1,10 @@
+C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyLib\bin\Debug\netcoreapp3.1\GalaxyLib.deps.json
+C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyLib\bin\Debug\netcoreapp3.1\GalaxyLib.dll
+C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyLib\bin\Debug\netcoreapp3.1\GalaxyLib.pdb
+C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyLib\obj\Debug\netcoreapp3.1\GalaxyLib.csproj.AssemblyReference.cache
+C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyLib\obj\Debug\netcoreapp3.1\GalaxyLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyLib\obj\Debug\netcoreapp3.1\GalaxyLib.AssemblyInfoInputs.cache
+C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyLib\obj\Debug\netcoreapp3.1\GalaxyLib.AssemblyInfo.cs
+C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyLib\obj\Debug\netcoreapp3.1\GalaxyLib.csproj.CoreCompileInputs.cache
+C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyLib\obj\Debug\netcoreapp3.1\GalaxyLib.dll
+C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyLib\obj\Debug\netcoreapp3.1\GalaxyLib.pdb

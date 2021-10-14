@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="BodyCommands\" />
+    <Folder Include="Subscribers\" />
   </ItemGroup>
 
 </Project>
