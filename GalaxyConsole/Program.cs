@@ -3,6 +3,7 @@ using System.Threading;
 using System.Windows.Input;
 using GalaxyLib;
 using GalaxyLib.Msg;
+using GalaxyLib.PubSub;
 using GalaxyLib.PubSub.KeyMap;
 using GalaxyWindow;
 
@@ -21,6 +22,8 @@ namespace GalaxyConsole
             const string xmlFileLocation = "./input/planets.xml";
 
             var sim = new Simulation();
+
+            MessageBroker.Subscribe("");
 
             //Handle obs logic
             var obs = new AppCmdObserver();

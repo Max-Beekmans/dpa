@@ -6,21 +6,31 @@ namespace GalaxyLib.PubSub
 {
     public static class MessageBroker
     {
-        private static IDictionary<string, IEnumerable<ISubscriber>> _subscribers;     
+        private static readonly IDictionary<string, IPublisher> Publishers
+            = new Dictionary<string, IPublisher>();
 
-        public static void Publish<T>(IPublisher<T> publisher, T args) where T : EventArgs
+        public static void AddChannel(string e, IPublisher pub)
         {
-            if (!_subscribers.TryGetValue(publisher.Id, out var subscribers))
+            if (Publishers.TryGetValue(e, out _))
                 return;
 
-            foreach (var sub in subscribers)
-            {
-            }
+            Publishers.Add(e, pub);
         }
 
-        public static void Subscribe()
+        public static void Publish(string pub)
         {
+            if (!Publishers.TryGetValue(pub, out var publisher))
+                return;
 
+            publisher.Raise();
+        }
+
+        public static void Subscribe<T>(string e, EventHandler<T> handler)
+        {
+            if (!Publishers.TryGetValue(e, out var publisher))
+                return;
+
+            publisher.Raise();
         }
     }
 }

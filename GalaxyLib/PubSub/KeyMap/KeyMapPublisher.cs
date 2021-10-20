@@ -2,14 +2,20 @@
 
 namespace GalaxyLib.PubSub.KeyMap
 {
-    public class KeyMapPublisher : BasePublisher<KeyMapPayload>
+    public class KeyMapPublisher : IPublisher<KeyMapPayload>
     {
-        public KeyMapPublisher(EventHandler<KeyMapPayload> eventHandler) : base(eventHandler)
+        public string Id { get; }
+
+        public event EventHandler<KeyMapPayload> OnPublish;
+
+        public KeyMapPublisher()
         {
+            Id = "KeyMap";
         }
 
-        public KeyMapPublisher(EventHandler<KeyMapPayload> eventHandler, KeyMapPayload args) : base(eventHandler, args)
+        public void Raise()
         {
+            
         }
     }
 }

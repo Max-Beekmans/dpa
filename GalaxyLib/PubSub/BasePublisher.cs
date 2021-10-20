@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GalaxyLib.PubSub
 {
-    public abstract class BasePublisher<T> : IPublisher<T> where T : EventArgs
+    public abstract class BasePublisher<T> : IPublisher where T : EventArgs
     {
         public string Id { get; }
 
@@ -12,17 +12,9 @@ namespace GalaxyLib.PubSub
 
         protected T Args;
 
-        protected BasePublisher(string id, EventHandler<T> eventHandler)
+        protected BasePublisher(string id)
         {
             Id = id;
-            OnPublish += eventHandler;
-        }
-
-        protected BasePublisher(string id, EventHandler<T> eventHandler, T args)
-        {
-            Id = id;
-            OnPublish += eventHandler;
-            Args = args;
         }
 
         public void Raise()
