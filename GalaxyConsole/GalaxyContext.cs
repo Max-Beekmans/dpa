@@ -11,7 +11,6 @@ namespace GalaxyConsole
     {
         public override void Pause()
         {
-            Mediator.Notify();
         }
 
         public override void SetKeyConfig(EventCmdEnum ev, string gesture)

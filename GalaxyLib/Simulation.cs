@@ -4,8 +4,6 @@ using System.Threading;
 using GalaxyLib.AppCommands;
 using GalaxyLib.IOCommands;
 using GalaxyLib.Msg;
-using GalaxyLib.PubSub;
-using GalaxyLib.PubSub.KeyMap;
 
 namespace GalaxyLib
 {
@@ -35,8 +33,6 @@ namespace GalaxyLib
                     "S"
                 }
             };
-
-            MessageBroker.AddChannel("KeyMap", new KeyMapPublisher(());
         }
 
         private void Start()

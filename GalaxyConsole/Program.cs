@@ -3,8 +3,6 @@ using System.Threading;
 using System.Windows.Input;
 using GalaxyLib;
 using GalaxyLib.Msg;
-using GalaxyLib.PubSub;
-using GalaxyLib.PubSub.KeyMap;
 using GalaxyWindow;
 
 namespace GalaxyConsole
@@ -23,14 +21,12 @@ namespace GalaxyConsole
 
             var sim = new Simulation();
 
-            MessageBroker.Subscribe("");
-
             //Handle obs logic
             var obs = new AppCmdObserver();
             sim.Attach(obs);
 
-            App a = new App();
-            a.Run(new MainWindow());
+            /*App a = new App();
+            a.Run(new MainWindow());*/
         }
     }
 }
