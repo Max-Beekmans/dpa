@@ -94,7 +94,7 @@ namespace GalaxyLib.Parser
                     break;
                 default:
                     throw new System.Exception("Unknown type");
-            }  
+            }
 
             // if (columnIndices.TryGetValue("oncollision", out var oncollisionIndex))
             //     ypos = int.Parse(line[oncollisionIndex]);

@@ -25,6 +25,14 @@ namespace GalaxyConsole
             var obs = new AppCmdObserver();
             sim.Attach(obs);
 
+            var consoleLine = Console.ReadLine();
+
+            while (!consoleLine.Equals("q", StringComparison.OrdinalIgnoreCase))
+            {
+                Console.WriteLine($"Pressed: {consoleLine}");
+                consoleLine = Console.ReadLine();
+            }
+
             /*App a = new App();
             a.Run(new MainWindow());*/
         }

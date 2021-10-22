@@ -16,6 +16,7 @@ namespace GalaxyLib.Model
         public int Radius { get; set; }
 
         public string Color { get; set; }
+
         public Type Type { get; set; }
 
         protected Body()
@@ -34,13 +35,13 @@ namespace GalaxyLib.Model
         ) :
             base(stateContext)
         {
-            this.XPos = xpos;
-            this.YPos = ypos;
-            this.Vx = vx;
-            this.Vy = vy;
-            this.Radius = radius;
-            this.Color = color;
-            this.Type = type;
+            XPos = xpos;
+            YPos = ypos;
+            Vx = vx;
+            Vy = vy;
+            Radius = radius;
+            Color = color;
+            Type = type;
         }
 
         public abstract void Introduce();

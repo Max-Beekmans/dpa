@@ -8,7 +8,7 @@ namespace GalaxyLib.State
 
         public StateActor(StateContext stateContext)
         {
-            this.StateContext = stateContext;
+            StateContext = stateContext;
         }
     }
 }

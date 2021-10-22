@@ -5,13 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="BodyCommands\**" />
     <Compile Remove="Subscribers\**" />
+    <EmbeddedResource Remove="BodyCommands\**" />
     <EmbeddedResource Remove="Subscribers\**" />
+    <None Remove="BodyCommands\**" />
     <None Remove="Subscribers\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="BodyCommands\" />
   </ItemGroup>
 
 </Project>

@@ -19,6 +19,34 @@ namespace GalaxyLib.Builder
             _builder = builder;
         }
 
+        public Planet
+            BuildPlanet(
+                string name,
+                int xpos,
+                int ypos,
+                double vx,
+                double vy,
+                int radius,
+                string color
+            )
+        {
+            ChangeBuilder(new PlanetBuilder());
+
+            return (Planet) Make("planet", name, xpos, ypos, vx, vy, radius, color);
+        }
+
+        public Asteroid
+            BuildAsteroid(
+                int xpos,
+                int ypos,
+                double vx,
+                double vy)
+        {
+            ChangeBuilder(new PlanetBuilder());
+
+            return (Asteroid) Make("asteroid", null, xpos, ypos, vx, vy, 5, "black");
+        }
+
         public ICelestialBody
         Make(
             string type,
@@ -31,7 +59,12 @@ namespace GalaxyLib.Builder
             string color
         )
         {
-            var body =
+            if (_builder == null)
+            {
+                throw new Exception("Builder is not set. Can't build body.");
+            }
+
+            ICelestialBody body =
                 _builder
                     .SetName(name)
                     .SetCoords(xpos, ypos)
@@ -40,15 +73,12 @@ namespace GalaxyLib.Builder
                     .SetColor(color)
                     .GetResult();
 
-            switch (type.ToLower())
+            return type.ToLower() switch
             {
-                case "planet":
-                    return (Planet) body;
-                case "asteroid":
-                    return (Asteroid) body;
-                default:
-                    throw new Exception($"Unknown type: {type}");
-            }
+                "planet" => (Planet)body,
+                "asteroid" => (Asteroid)body,
+                _ => throw new Exception($"Unknown type: {type}"),
+            };
         }
     }
 }

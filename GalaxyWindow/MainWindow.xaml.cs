@@ -15,11 +15,8 @@ namespace GalaxyWindow
 
         public MainWindow()
         {
-            int r = 255;
-            int g = 255;
-            int b = 255;
+            SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(255, 0, 0));
 
-            var brush = new SolidColorBrush(Color.FromRgb(255, 0, 0));
             rect = new Rectangle {
                 Width = 250,
                 Height = 250,
@@ -27,18 +24,25 @@ namespace GalaxyWindow
                 StrokeThickness = 3,
                 Stroke = Brushes.Black
             };
+
             Canvas.SetLeft(rect, 50);
 
             InitializeComponent();
 
-            mainCanvas.Children.Add(rect);
+            MainCanvas.Children.Add(rect);
         }
 
-        private void mainCanvas_KeyDown(object sender, KeyEventArgs e)
+        private void MainCanvas_KeyDown(object sender, KeyEventArgs e)
         {
-            rect.Width = 500;
-            
-            Title = "Reached";
+            MessageBox.Show("Keydown event occurred");
+        }
+
+        private void MainCanvas_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is Canvas canvas)
+            {
+                _ = canvas.Focus();
+            }
         }
     }
 }

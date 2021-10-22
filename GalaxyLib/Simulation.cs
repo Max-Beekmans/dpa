@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading;
 using GalaxyLib.AppCommands;
-using GalaxyLib.IOCommands;
 using GalaxyLib.Msg;
 
 namespace GalaxyLib
