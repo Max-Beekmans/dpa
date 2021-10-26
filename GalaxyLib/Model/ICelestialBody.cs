@@ -4,6 +4,8 @@ namespace GalaxyLib.Model
 {
     public interface ICelestialBody
     {
+        Guid Id { get; set; }
+
         [Parse("x")]
         int XPos { get; set; }
 

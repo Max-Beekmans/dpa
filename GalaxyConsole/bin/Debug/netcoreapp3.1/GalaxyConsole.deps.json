@@ -21,6 +21,9 @@
         }
       },
       "GalaxyWindow/1.0.0": {
+        "dependencies": {
+          "GalaxyLib": "1.0.0"
+        },
         "runtime": {
           "GalaxyWindow.dll": {}
         }

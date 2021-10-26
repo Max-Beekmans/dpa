@@ -46,3 +46,4 @@ C:\Users\mxb\Documents\repos\dpa\GalaxyConsole\bin\Debug\netcoreapp3.1\GalaxyWin
 C:\Users\mxb\Documents\repos\dpa\GalaxyConsole\bin\Debug\netcoreapp3.1\GalaxyLib.pdb
 C:\Users\mxb\Documents\repos\dpa\GalaxyConsole\bin\Debug\netcoreapp3.1\GalaxyWindow.pdb
 C:\Users\mxb\Documents\repos\dpa\GalaxyConsole\obj\Debug\netcoreapp3.1\GalaxyConsole.genruntimeconfig.cache
+C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyConsole\obj\Debug\netcoreapp3.1\GalaxyConsole.csproj.CopyComplete

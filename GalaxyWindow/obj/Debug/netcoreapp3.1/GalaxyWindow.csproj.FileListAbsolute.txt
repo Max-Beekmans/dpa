@@ -36,3 +36,8 @@ C:\Users\mxb\Documents\repos\dpa\GalaxyWindow\obj\Debug\netcoreapp3.1\GalaxyWind
 C:\Users\mxb\Documents\repos\dpa\GalaxyWindow\obj\Debug\netcoreapp3.1\GalaxyWindow.dll
 C:\Users\mxb\Documents\repos\dpa\GalaxyWindow\obj\Debug\netcoreapp3.1\GalaxyWindow.pdb
 C:\Users\mxb\Documents\repos\dpa\GalaxyWindow\obj\Debug\netcoreapp3.1\GalaxyWindow.genruntimeconfig.cache
+C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyWindow\bin\Debug\netcoreapp3.1\GalaxyLib.dll
+C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyWindow\bin\Debug\netcoreapp3.1\GalaxyLib.pdb
+C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyWindow\obj\Debug\netcoreapp3.1\KeyConfigWindow.g.cs
+C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyWindow\obj\Debug\netcoreapp3.1\GalaxyWindow_MarkupCompile.lref
+C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyWindow\obj\Debug\netcoreapp3.1\KeyConfigWindow.baml

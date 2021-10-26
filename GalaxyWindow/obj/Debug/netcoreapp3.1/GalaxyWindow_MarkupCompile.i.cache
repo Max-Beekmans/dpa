@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\mxb\Documents\repos\dpa\GalaxyWindow\obj\Debug\netcoreapp3.1\
+C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyWindow\obj\Debug\netcoreapp3.1\
 GalaxyWindow
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
-C:\Users\mxb\Documents\repos\dpa\GalaxyWindow\App.xaml
-11407045341
+C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyWindow\App.xaml
+2-1523347824
 
-6-1135799814
-192-1533232326
-MainWindow.xaml;
+7-1214274281
+193-1478013943
+KeyConfigWindow.xaml;MainWindow.xaml;
 
-False
+True
 

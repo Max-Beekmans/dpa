@@ -8,7 +8,7 @@ namespace GalaxyLib.AppCommands
     {
         private readonly Simulation _simulation;
 
-        public ResumeCommand(Simulation simulation)
+        public ResumeCommand(Simulation simulation) : base("Resume")
         {
             _simulation = simulation;
         }

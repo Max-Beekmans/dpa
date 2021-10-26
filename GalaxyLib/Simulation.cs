@@ -2,41 +2,58 @@
 using System.Collections.Generic;
 using System.Threading;
 using GalaxyLib.AppCommands;
+using GalaxyLib.Model;
 using GalaxyLib.Msg;
+using GalaxyLib.Parser;
+using GalaxyLib.PayloadStrategy;
 
 namespace GalaxyLib
 {
-    public class Simulation : ISubject
+    public class Simulation : BaseSubject
     {
+        public KeyMap KeyMap { get; set; }
+        public Galaxy Galaxy { get; set; }
+        public string PayloadLocation { get; set; }
+        public IParseStrategy ParseStrategy { get; set; }
+        public IFileStrategy FileStrategy { get; set; }
+
+        private static Simulation _instance;
+        private static object _lock = new object();
         private static bool _running = true;
-        private bool _paused = false;
-        private Thread _simThread;
+        private static bool _paused = false;
 
-        public IDictionary<AppCommand, string> AppCmdDictionary;
-
-        private List<IObserver> _observers = new List<IObserver>();
-
-        public Simulation()
-        {
-            _simThread = new Thread(Start) {IsBackground = true, Name = "SimulationThread"};
-            _simThread.Start();
-
-            AppCmdDictionary = new Dictionary<AppCommand, string>
-            {
-                {
-                    new PauseCommand(this),
-                    "P"
-                },
-                {
-                    new ResumeCommand(this),
-                    "S"
-                }
-            };
+        private Simulation()
+        {   
+            KeyMap = new KeyMap(this);
         }
 
-        private void Start()
+        public static Simulation GetInstance()
+        {
+            lock(_lock)
+            {
+                if (_instance != null) return _instance;
+
+                _instance ??= new Simulation();
+
+                return _instance;
+            }
+        }
+
+        public void Start()
         {
             var count = 0;
+
+            if (string.IsNullOrWhiteSpace(PayloadLocation))
+                throw new Exception("Can't start without payload location");
+
+            if (ParseStrategy == null)
+                throw new Exception("Can't start without Payload strategy");
+
+            if (FileStrategy == null)
+                throw new Exception("Can't start without File strategy");
+
+            var payload = FileStrategy.GetPayload(PayloadLocation);
+            Galaxy = ParseStrategy.ParsePayload(payload);
 
             while(_running)
             {
@@ -46,7 +63,12 @@ namespace GalaxyLib
                     count = 0;
                 }
 
-                Console.WriteLine("Something: " + _simThread.Name);
+                if (!_paused)
+                {
+                    Galaxy.Notify();
+                    Console.WriteLine("Something");
+                }
+                
                 Thread.Sleep(1000);
                 count++;
             }
@@ -68,29 +90,6 @@ namespace GalaxyLib
         {
             if (_paused)
                 _paused = false;
-        }
-
-        public void Attach(IObserver observer)
-        {
-            _observers.Add(observer);
-        }
-
-        public void Detach(IObserver observer)
-        {
-            _observers.Remove(observer);
-        }
-
-        public void Notify()
-        {
-            foreach (var obs in _observers)
-            {
-                obs.Update(this);
-            }
-        }
-
-        public void SetKeyBindings(Dictionary<AppCommand, string> bindings)
-        {
-            AppCmdDictionary = bindings;
         }
     }
 }

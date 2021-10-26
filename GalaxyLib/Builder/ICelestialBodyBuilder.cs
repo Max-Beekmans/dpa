@@ -1,3 +1,4 @@
+using System;
 using GalaxyLib.Model;
 using GalaxyLib.State;
 
@@ -8,6 +9,8 @@ namespace GalaxyLib.Builder
         ICelestialBody GetResult();
 
         ICelestialBodyBuilder AddStateContext(StateContext context);
+
+        ICelestialBodyBuilder SetId();
 
         ICelestialBodyBuilder SetName(string name);
 

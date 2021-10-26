@@ -5,6 +5,8 @@ namespace GalaxyLib.Model
 {
     public abstract class Body : StateActor, ICelestialBody
     {
+        public Guid Id { get; set; }
+
         public int XPos { get; set; }
 
         public int YPos { get; set; }

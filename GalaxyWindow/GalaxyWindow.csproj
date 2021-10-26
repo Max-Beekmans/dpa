@@ -7,4 +7,8 @@
     <StartupObject>GalaxyWindow.Program</StartupObject>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GalaxyLib\GalaxyLib.csproj" />
+  </ItemGroup>
+
 </Project>

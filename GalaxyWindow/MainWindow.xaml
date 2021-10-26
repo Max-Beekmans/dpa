@@ -4,7 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Canvas Name="MainCanvas" Background="LightYellow" Focusable="true" KeyDown="MainCanvas_KeyDown" MouseDown="MainCanvas_MouseDown" >
-    </Canvas>
+        Title="MainWindow" Height="600" Width="800">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Options">
+                <MenuItem Header="_Key bindings" Click="Keybinding_OnClick"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <Canvas Name="MainCanvas" Background="LightYellow" Focusable="true" KeyDown="MainCanvas_KeyDown" MouseDown="MainCanvas_MouseDown" >
+        </Canvas>
+    </DockPanel>
 </Window>

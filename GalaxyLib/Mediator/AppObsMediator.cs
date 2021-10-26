@@ -29,9 +29,6 @@ namespace GalaxyLib.Mediator
         {
             switch (ev)
             {
-                case EventCmdEnum.SETKEYCONFIG:
-                        _simulation.SetKeyBindings((Dictionary<AppCommand, string>) sender);
-                    break;
                 case EventCmdEnum.PAUSEAPP:
                     break;
                 case EventCmdEnum.RESUMEAPP:

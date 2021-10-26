@@ -66,6 +66,7 @@ namespace GalaxyLib.Builder
 
             ICelestialBody body =
                 _builder
+                    .SetId()
                     .SetName(name)
                     .SetCoords(xpos, ypos)
                     .SetSpeed(vx, vy)

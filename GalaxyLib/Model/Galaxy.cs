@@ -1,14 +1,15 @@
 using System.Collections.Generic;
+using GalaxyLib.Msg;
 
 namespace GalaxyLib.Model
 {
-    public class Galaxy
+    public class Galaxy : BaseSubject
     {
         public IEnumerable<ICelestialBody> Bodies { get; set; }
 
         public Galaxy(IEnumerable<ICelestialBody> bodies)
         {
-            this.Bodies = bodies;
+            Bodies = bodies;
         }
     }
 }

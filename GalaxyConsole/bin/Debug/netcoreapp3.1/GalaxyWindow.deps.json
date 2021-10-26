@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v3.1": {
       "GalaxyWindow/1.0.0": {
+        "dependencies": {
+          "GalaxyLib": "1.0.0"
+        },
         "runtime": {
           "GalaxyWindow.dll": {}
+        }
+      },
+      "GalaxyLib/1.0.0": {
+        "runtime": {
+          "GalaxyLib.dll": {}
         }
       }
     }
   },
   "libraries": {
     "GalaxyWindow/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GalaxyLib/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
