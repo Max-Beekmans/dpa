@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Globalization;
 using GalaxyLib.Builder;
 using GalaxyLib.Model;
 
@@ -20,7 +21,7 @@ namespace GalaxyLib.Parser
         public Galaxy ParsePayload(string payload)
         {
             var rows = payload.Split(_rowDelim);
-            var indices = this.GetColumnIndices(rows[0]);
+            var indices = GetColumnIndices(rows[0]);
             var bodyList = new List<ICelestialBody>();
 
             for (int i = 1; i < rows.Length; i++)
@@ -52,8 +53,8 @@ namespace GalaxyLib.Parser
 
             string type = null;
             string name = null;
-            int xpos = -1;
-            int ypos = -1;
+            double xpos = -1;
+            double ypos = -1;
             double vx = -1;
             double vy = -1;
             int radius = -1;
@@ -66,16 +67,16 @@ namespace GalaxyLib.Parser
                 name = line[nameIndex];
 
             if (columnIndices.TryGetValue("x", out var xIndex))
-                xpos = int.Parse(line[xIndex]);
+                xpos = double.Parse(line[xIndex]);
 
             if (columnIndices.TryGetValue("y", out var yIndex))
-                ypos = int.Parse(line[yIndex]);
+                ypos = double.Parse(line[yIndex]);
 
             if (columnIndices.TryGetValue("vx", out var vxIndex))
-                vx = double.Parse(line[vxIndex]);
+                vx = double.Parse(line[vxIndex], CultureInfo.InvariantCulture);
 
             if (columnIndices.TryGetValue("vy", out var vyIndex))
-                vy = double.Parse(line[vyIndex]);
+                vy = double.Parse(line[vyIndex], CultureInfo.InvariantCulture);
 
             // if (columnIndices.TryGetValue("neighbours", out var neighboursIndex))
             //     ypos = int.Parse(line[neighboursIndex]);

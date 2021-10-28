@@ -6,11 +6,9 @@ namespace GalaxyLib.Model
     {
         Guid Id { get; set; }
 
-        [Parse("x")]
-        int XPos { get; set; }
+        double XPos { get; set; }
 
-        [Parse("y")]
-        int YPos { get; set; }
+        double YPos { get; set; }
 
         double Vx { get; set; }
 
@@ -21,7 +19,5 @@ namespace GalaxyLib.Model
         string Color { get; set; }
 
         Type Type { get; set; }
-
-        void Introduce();
     }
 }

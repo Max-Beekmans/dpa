@@ -14,7 +14,7 @@ namespace GalaxyLib.Builder
 
         ICelestialBodyBuilder SetName(string name);
 
-        ICelestialBodyBuilder SetCoords(int xpos, int ypos);
+        ICelestialBodyBuilder SetCoords(double xpos, double ypos);
 
         ICelestialBodyBuilder SetSpeed(double vx, double vy);
 

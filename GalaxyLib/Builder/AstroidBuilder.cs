@@ -12,7 +12,7 @@ namespace GalaxyLib.Builder
 
         public override ICelestialBodyBuilder AddStateContext(StateContext context)
         {
-            ((Asteroid)Current).StateContext = context;
+            ((Asteroid)Current).context = context;
 
             return this;
         }

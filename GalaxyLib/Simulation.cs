@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Threading;
 using GalaxyLib.AppCommands;
+using GalaxyLib.Collision;
 using GalaxyLib.Model;
+using GalaxyLib.Movement;
 using GalaxyLib.Msg;
 using GalaxyLib.Parser;
 using GalaxyLib.PayloadStrategy;
@@ -16,15 +18,24 @@ namespace GalaxyLib
         public string PayloadLocation { get; set; }
         public IParseStrategy ParseStrategy { get; set; }
         public IFileStrategy FileStrategy { get; set; }
+        
+        public MovementContext MovementContext { get; set; }
+
+        public CollisionContext CollisionContext { get; set; }
 
         private static Simulation _instance;
         private static object _lock = new object();
         private static bool _running = true;
         private static bool _paused = false;
+        
+        private const int FPS = 60;
+        private int _msPerTick;
 
         private Simulation()
         {   
             KeyMap = new KeyMap(this);
+            double tick = 1000 / FPS;
+            _msPerTick = (int) System.Math.Round(tick);
         }
 
         public static Simulation GetInstance()
@@ -41,8 +52,6 @@ namespace GalaxyLib
 
         public void Start()
         {
-            var count = 0;
-
             if (string.IsNullOrWhiteSpace(PayloadLocation))
                 throw new Exception("Can't start without payload location");
 
@@ -54,22 +63,35 @@ namespace GalaxyLib
 
             var payload = FileStrategy.GetPayload(PayloadLocation);
             Galaxy = ParseStrategy.ParsePayload(payload);
+            MovementContext = new MovementContext(Galaxy);
+            CollisionContext = new CollisionContext(Galaxy, new NaiveCollision());
+
+            var count = 0;
 
             while(_running)
             {
-                if (count > 10)
-                {
-                    Notify();
-                    count = 0;
-                }
+                var start = DateTime.UtcNow;
 
                 if (!_paused)
                 {
+                    CollisionContext.HandleCollisions();
+                    MovementContext.MoveGalaxy();
                     Galaxy.Notify();
-                    Console.WriteLine("Something");
+
+                    if(count == 60)
+                    {
+                        Console.WriteLine("something");
+                        count = 0;
+                    }
                 }
-                
-                Thread.Sleep(1000);
+
+                var dt = DateTime.UtcNow - start;
+
+                int sleep = (int)(_msPerTick - dt.TotalMilliseconds);
+
+                if (sleep > 0)
+                    Thread.Sleep(sleep);
+
                 count++;
             }
         }

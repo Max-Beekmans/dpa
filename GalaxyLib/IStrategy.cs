@@ -1,4 +1,6 @@
-public interface IStrategy
+namespace GalaxyLib
 {
-    
+    public interface IStrategy
+    {
+    }
 }

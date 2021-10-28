@@ -51,8 +51,8 @@ namespace GalaxyLib.Builder
         Make(
             string type,
             string name,
-            int xpos,
-            int ypos,
+            double xpos,
+            double ypos,
             double vx,
             double vy,
             int radius,

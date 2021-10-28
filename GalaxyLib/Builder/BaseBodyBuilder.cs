@@ -29,7 +29,7 @@ namespace GalaxyLib.Builder
             return this;
         }
 
-        public virtual ICelestialBodyBuilder SetCoords(int xpos, int ypos) {
+        public virtual ICelestialBodyBuilder SetCoords(double xpos, double ypos) {
             Current.XPos = xpos;
             Current.YPos = ypos;
 

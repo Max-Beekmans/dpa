@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading;
-using System.Windows.Input;
 using GalaxyLib;
 using GalaxyLib.Msg;
 using GalaxyLib.Parser;
@@ -11,7 +10,6 @@ namespace GalaxyConsole
 {
     class Program
     {
-        private static bool running = true;
         private static Thread _simThread;
 
         [STAThread]
@@ -33,8 +31,6 @@ namespace GalaxyConsole
             //sim.Start();
 
             //Handle obs logic
-            var obs = new AppCmdObserver();
-            sim.Attach(obs);
 
             /*var consoleLine = Console.ReadLine();
 

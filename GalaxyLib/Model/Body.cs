@@ -1,15 +1,16 @@
 using System;
+using GalaxyLib.Movement;
 using GalaxyLib.State;
 
 namespace GalaxyLib.Model
 {
-    public abstract class Body : StateActor, ICelestialBody
+    public abstract class Body : IStateActor, IMovementActor, ICelestialBody
     {
         public Guid Id { get; set; }
 
-        public int XPos { get; set; }
+        public double XPos { get; set; }
 
-        public int YPos { get; set; }
+        public double YPos { get; set; }
 
         public double Vx { get; set; }
 
@@ -20,6 +21,8 @@ namespace GalaxyLib.Model
         public string Color { get; set; }
 
         public Type Type { get; set; }
+
+        public StateContext context { get; set; }
 
         protected Body()
         {
@@ -34,18 +37,37 @@ namespace GalaxyLib.Model
             StateContext stateContext,
             string color,
             Type type
-        ) :
-            base(stateContext)
+        )
         {
             XPos = xpos;
             YPos = ypos;
             Vx = vx;
             Vy = vy;
             Radius = radius;
+            context = stateContext;
             Color = color;
             Type = type;
         }
 
-        public abstract void Introduce();
+        public void ExecuteState()
+        {
+            context.State.Execute();
+        }
+
+        public void Move()
+        {
+            XPos += Vx;
+            YPos += Vy;
+        }
+
+        public void BounceOfVertical()
+        {
+            Vx *= -1;
+        }
+
+        public void BounceOfHorizontal()
+        {
+            Vy *= -1;
+        }
     }
 }
