@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using GalaxyLib.Movement;
 using GalaxyLib.Msg;
 using GalaxyLib.State;
@@ -7,7 +8,7 @@ namespace GalaxyLib.Model
 {
     public class Galaxy : BaseSubject
     {
-        public IEnumerable<ICelestialBody> Bodies { get; set; }
+        public List<ICelestialBody> Bodies { get; set; }
 
         public IEnumerable<IMovementActor> MovementActors { get
             {
@@ -34,9 +35,31 @@ namespace GalaxyLib.Model
             }
         }
 
-        public Galaxy(IEnumerable<ICelestialBody> bodies)
+        public IEnumerable<Planet> Planets
+        {
+            get
+            {
+                var planets = new List<Planet>();
+                foreach (ICelestialBody body in Bodies)
+                {
+                    if (body is Planet planet)
+                        planets.Add(planet);
+                }
+                return planets;
+            }
+        }
+        
+        public Galaxy() { }
+
+        public Galaxy(List<ICelestialBody> bodies)
         {
             Bodies = bodies;
+        }
+
+        public void RemoveBody(ICelestialBody body)
+        {
+            if (Bodies.Contains(body))
+                Bodies.Remove(body);
         }
     }
 }

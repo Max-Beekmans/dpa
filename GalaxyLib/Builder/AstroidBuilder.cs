@@ -10,24 +10,17 @@ namespace GalaxyLib.Builder
             Current = new Asteroid {Type = typeof(Asteroid)};
         }
 
-        public override ICelestialBodyBuilder AddStateContext(StateContext context)
-        {
-            ((Asteroid)Current).context = context;
-
-            return this;
-        }
-
         public override ICelestialBodyBuilder SetName(string name)
         {
             return this;
         }
 
-        public override ICelestialBodyBuilder SetColor(string color)
+        public ICelestialBodyBuilder SetColor()
         {
-            return base.SetColor("Black");
+            return base.SetColor("black");
         }
 
-        public override ICelestialBodyBuilder SetRadius(int radius)
+        public ICelestialBodyBuilder SetRadius()
         {
             return base.SetRadius(5);
         }

@@ -9,7 +9,7 @@ namespace GalaxyLib.Model
     /// </summary>
     public abstract class IdleBody : IStateActor, ICelestialBody
     {
-        public StateContext context { get; set; }
+        public StateContext Context { get; set; }
         public Guid Id { get; set; }
         public double XPos { get; set; }
         public double YPos { get; set; }
@@ -19,9 +19,16 @@ namespace GalaxyLib.Model
         public string Color { get; set; }
         public Type Type { get; set; }
 
-        public void ExecuteState()
+        public ICelestialBody ActorBody { get => this; }
+
+        public void EnterCollision()
         {
-            context.State.Execute();
+            Context.State.Execute();
+        }
+
+        public void LeaveCollision()
+        {
+            Context.State.ExecuteOnLeave();
         }
     }
 }

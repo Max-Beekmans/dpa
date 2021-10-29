@@ -1,32 +1,46 @@
 ﻿using GalaxyLib.Model;
+using GalaxyLib.Msg;
 using GalaxyLib.State;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace GalaxyLib.Collision
 {
-    public class CollisionContext
+    public class CollisionContext: IObserver
     {
         private ICollisionStrategy _collisionStrategy;
+        private List<IStateActor> _collided;
 
-        private Galaxy _galaxy;
-
-        public CollisionContext(Galaxy galaxy, ICollisionStrategy strategy)
+        public CollisionContext(ICollisionStrategy strategy)
         {
             _collisionStrategy = strategy;
-            _galaxy = galaxy;
+            _collided = new List<IStateActor>();
         }
 
-        public void HandleCollisions()
+        public void Update(ISubject subject)
         {
-            foreach (var celBody in _galaxy.Bodies)
+            var collided = _collided;
+
+            if (subject is Galaxy galaxy)
             {
-                if(_collisionStrategy.Collides(celBody, _galaxy.Bodies))
+                foreach (var stateActor in galaxy.StateActors)
                 {
-                    if (celBody is IStateActor actor)
+                    if (_collisionStrategy.Collides(stateActor.ActorBody, galaxy.Bodies, out var collidedBody) && !collided.Contains(stateActor))
                     {
-                        //actor.ExecuteState();
+                        stateActor.EnterCollision();
+
+                        collided.Add(stateActor);
+                    }
+                }
+
+                for (int i = 0; i < collided.Count; i++)
+                {
+                    var stateActor = collided[i];
+
+                    if (!_collisionStrategy.Collides(stateActor.ActorBody, galaxy.Bodies, out var collidedBody))
+                    {
+                        stateActor.LeaveCollision();
+
+                        collided.Remove(stateActor);
                     }
                 }
             }

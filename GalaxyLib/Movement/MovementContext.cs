@@ -1,31 +1,27 @@
 ﻿using GalaxyLib.Collision;
 using GalaxyLib.Model;
-using GalaxyLib.State;
+using GalaxyLib.Msg;
 
 namespace GalaxyLib.Movement
 {
-    public class MovementContext
+    public class MovementContext : IObserver
     {
-        private Galaxy _galaxy;
-
-        public MovementContext(Galaxy galaxy)
+        public void Update(ISubject subject)
         {
-            _galaxy = galaxy;
-        }
-
-        public void MoveGalaxy()
-        {
-            foreach (var body in _galaxy.Bodies)
+            if (subject is Galaxy galaxy)
             {
-                IMovementActor actor = (IMovementActor) body;
+                foreach (var body in galaxy.Bodies)
+                {
+                    IMovementActor actor = (IMovementActor) body;
 
-                if (body.XPos <= 0 || body.XPos >= 800)
-                    actor.BounceOfVertical();
+                    if (body.XPos <= 0 || body.XPos >= 800)
+                        actor.BounceOfVertical();
 
-                if (body.YPos <= 0 || body.YPos >= 600)
-                    actor.BounceOfHorizontal();
+                    if (body.YPos <= 0 || body.YPos >= 600)
+                        actor.BounceOfHorizontal();
 
-                actor.Move();
+                    actor.Move();
+                }
             }
         }
     }

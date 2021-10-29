@@ -15,7 +15,7 @@ namespace GalaxyLib.Parser
 
         public Galaxy ParsePayload(string payload)
         {
-            throw new System.NotImplementedException();
+            return null;
         }
     }
 }

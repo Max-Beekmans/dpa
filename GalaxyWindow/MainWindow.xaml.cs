@@ -19,13 +19,14 @@ namespace GalaxyWindow
     public partial class MainWindow : Window, IObserver
     {
         private Simulation _sim;
-        private IDictionary<Guid, Ellipse> _entities;
+        private List<Ellipse> _ellipses;
+        private List<Line> _lines;
         private IDictionary<string, SolidColorBrush> _brushDictionary;
 
         public MainWindow()
         {
             _sim = Simulation.GetInstance();
-            _entities = new Dictionary<Guid, Ellipse>();
+            _lines = new List<Line>();
             _sim.Galaxy.Attach(this);
             _brushDictionary = new Dictionary<string, SolidColorBrush>
             {
@@ -45,52 +46,76 @@ namespace GalaxyWindow
         {
             //var galaxy = _sim.Galaxy.Bodies.ToList();
             var bodyIds = new List<Guid>(galaxy.Bodies.Select(x => x.Id).ToList());
+            _ellipses = new List<Ellipse>();
 
-            foreach (var body in _sim.Galaxy.Bodies)
+            foreach (var body in galaxy.Bodies)
             {
-                // Set new positions for shapes
-                if (_entities.TryGetValue(body.Id, out var ellipse))
+                SolidColorBrush brush;
+
+                if (!_brushDictionary.TryGetValue(body.Color, out brush))
                 {
-                    Canvas.SetLeft(ellipse, body.XPos);
-                    Canvas.SetTop(ellipse, body.YPos);
-                } else
-                {
-                    SolidColorBrush brush;
-
-                    if (!_brushDictionary.TryGetValue(body.Color, out brush))
-                    {
-                        brush = Brushes.Black;
-                    }
-
-                    // Add new shapes
-                    var e = new Ellipse
-                    {
-                        Stroke = brush,
-                        Fill = brush,
-                        Width = body.Radius,
-                        Height = body.Radius
-                    };
-                    _entities.Add(body.Id, e);
-
-                    bodyIds.Remove(body.Id);
-
-                    // Remove deleted bodies from shapes
-                    foreach (var bodyId in bodyIds)
-                    {
-                        _entities.Remove(bodyId);
-                    }
+                    brush = Brushes.Black;
                 }
 
-                Redraw();
+                var e = new Ellipse
+                {
+                    Stroke = brush,
+                    Fill = brush,
+                    Width = body.Radius,
+                    Height = body.Radius
+                };
+
+                Canvas.SetLeft(e, body.XPos);
+                Canvas.SetTop(e, body.YPos);
+
+                _ellipses.Add(e);
+            }
+
+            DrawNeighbours(galaxy);
+
+            Redraw();
+        }
+
+        private void DrawNeighbours(Galaxy galaxy)
+        {
+            var list = new List<string>();
+            _lines = new List<Line>();
+
+            foreach (var body in galaxy.Planets)
+            {
+                foreach (var other in body.Neighbours)
+                {
+                    if (list.Contains($"{other.Name}{body.Name}") ||
+                        list.Contains($"{body.Name}{other.Name}"))
+                        continue;
+
+                    Line line = new Line
+                    {
+                        Stroke = Brushes.Black,
+                        X1 = body.XPos + (body.Radius / 2),
+                        Y1 = body.YPos + (body.Radius / 2),
+                        X2 = other.XPos + (other.Radius / 2),
+                        Y2 = other.YPos + (other.Radius / 2),
+                        StrokeThickness = 1
+                    };
+                    _lines.Add(line);
+                    list.Add($"{body.Name}{other.Name}");
+                }
             }
         }
 
         private void Redraw()
         {
             MainCanvas.Children.Clear();
-            foreach (var entity in _entities)
+
+            foreach (var line in _lines)
             {
-                MainCanvas.Children.Add(entity.Value);
+                MainCanvas.Children.Add(line);
+            }
+
+            foreach (var ellipse in _ellipses)
+            {
+                MainCanvas.Children.Add(ellipse);
             }
         }
 

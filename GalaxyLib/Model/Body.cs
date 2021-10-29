@@ -22,7 +22,11 @@ namespace GalaxyLib.Model
 
         public Type Type { get; set; }
 
-        public StateContext context { get; set; }
+        public StateContext Context { get; set; }
+
+        public ICelestialBody ActorBody { get => this; }
+
+        public ICelestialBody MovementActor { get => this; }
 
         protected Body()
         {
@@ -44,14 +48,9 @@ namespace GalaxyLib.Model
             Vx = vx;
             Vy = vy;
             Radius = radius;
-            context = stateContext;
+            Context = stateContext;
             Color = color;
             Type = type;
-        }
-
-        public void ExecuteState()
-        {
-            context.State.Execute();
         }
 
         public void Move()
@@ -68,6 +67,16 @@ namespace GalaxyLib.Model
         public void BounceOfHorizontal()
         {
             Vy *= -1;
+        }
+
+        public void EnterCollision()
+        {
+            Context.State.Execute();
+        }
+
+        public void LeaveCollision()
+        {
+            Context.State.ExecuteOnLeave();
         }
     }
 }

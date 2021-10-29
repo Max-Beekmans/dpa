@@ -8,7 +8,7 @@ namespace GalaxyLib.Builder
     {
         ICelestialBody GetResult();
 
-        ICelestialBodyBuilder AddStateContext(StateContext context);
+        ICelestialBodyBuilder BuildStateContext(Galaxy galaxy, string startState);
 
         ICelestialBodyBuilder SetId();
 

@@ -8,9 +8,16 @@ namespace GalaxyLib.Builder
     {
         protected ICelestialBody Current { get; set; }
 
-        public abstract ICelestialBodyBuilder AddStateContext(StateContext context);
-
         public abstract ICelestialBodyBuilder SetName(string name);
+
+        public ICelestialBodyBuilder BuildStateContext(Galaxy galaxy, string startState)
+        {
+            var stateActor = (IStateActor)Current;
+
+            stateActor.Context = new StateContext(stateActor, startState, galaxy);
+
+            return this;
+        }
 
         public ICelestialBodyBuilder SetId()
         {

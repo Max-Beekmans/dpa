@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
 using GalaxyLib.AppCommands;
 using GalaxyLib.Collision;
@@ -35,7 +34,7 @@ namespace GalaxyLib
         {   
             KeyMap = new KeyMap(this);
             double tick = 1000 / FPS;
-            _msPerTick = (int) System.Math.Round(tick);
+            _msPerTick = (int) Math.Round(tick);
         }
 
         public static Simulation GetInstance()
@@ -63,8 +62,10 @@ namespace GalaxyLib
 
             var payload = FileStrategy.GetPayload(PayloadLocation);
             Galaxy = ParseStrategy.ParsePayload(payload);
-            MovementContext = new MovementContext(Galaxy);
-            CollisionContext = new CollisionContext(Galaxy, new NaiveCollision());
+            MovementContext = new MovementContext();
+            CollisionContext = new CollisionContext(new NaiveCollision());
+            Galaxy.Attach(MovementContext);
+            Galaxy.Attach(CollisionContext);
 
             var count = 0;
 
@@ -74,14 +75,13 @@ namespace GalaxyLib
 
                 if (!_paused)
                 {
-                    CollisionContext.HandleCollisions();
-                    MovementContext.MoveGalaxy();
-                    Galaxy.Notify();
-
-                    if(count == 60)
+                    if (count == 1)
                     {
-                        Console.WriteLine("something");
+                        Galaxy.Notify();
                         count = 0;
+                    } else
+                    {
+                        count++;
                     }
                 }
 
@@ -91,8 +91,6 @@ namespace GalaxyLib
 
                 if (sleep > 0)
                     Thread.Sleep(sleep);
-
-                count++;
             }
         }
 

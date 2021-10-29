@@ -1,9 +1,17 @@
+using GalaxyLib.Model;
+
 namespace GalaxyLib.State
 {
     public interface IState
     {
-        StateContext context { get; set; }
+        string Name { get; }
+
+        StateContext Context { get; set; }
+
+        IStateActor Actor { get; set; }
 
         void Execute();
+
+        void ExecuteOnLeave();
     }
 }

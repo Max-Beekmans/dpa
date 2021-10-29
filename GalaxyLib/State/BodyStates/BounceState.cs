@@ -1,14 +1,26 @@
+using GalaxyLib.Model;
 using System;
 
 namespace GalaxyLib.State
 {
-    public class BounceState : IState
+    public class BounceState : BaseBodyState
     {
-        public StateContext context { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        private int _count;
 
-        public void Execute()
+        public BounceState(StateContext context, IStateActor actor) : base("bounce", context, actor)
         {
-            Console.WriteLine($"I'm a {typeof (BounceState)}");
+        }
+
+        public override void Execute()
+        {
+            _count++;
+            if (_count > 4)
+            {
+                Context.ChangeState("blink");
+            }
+
+            Actor.ActorBody.Vx *= -1;
+            Actor.ActorBody.Vy *= -1;
         }
     }
 }

@@ -5,6 +5,6 @@ namespace GalaxyLib.Collision
 {
     public interface ICollisionStrategy
     {
-        bool Collides(ICelestialBody body, IEnumerable<ICelestialBody> celestialBodies);
+        bool Collides(ICelestialBody body, IEnumerable<ICelestialBody> celestialBodies, out ICelestialBody collidedBody);
     }
 }

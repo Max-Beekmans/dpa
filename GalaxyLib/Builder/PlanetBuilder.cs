@@ -11,13 +11,6 @@ namespace GalaxyLib.Builder
             Current.Type = typeof(Planet);
         }
 
-        public override ICelestialBodyBuilder AddStateContext(StateContext context)
-        {
-            ((Planet) Current).context = context;
-
-            return this;
-        }
-
         public override ICelestialBodyBuilder SetName(string name)
         {
             ((Planet) Current).Name = name;
