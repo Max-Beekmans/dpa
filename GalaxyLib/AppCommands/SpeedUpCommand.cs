@@ -4,18 +4,18 @@ using System.Text;
 
 namespace GalaxyLib.AppCommands
 {
-    public class ResumeCommand : AppCommand
+    public class SpeedUpCommand : AppCommand
     {
         private readonly Simulation _simulation;
 
-        public ResumeCommand(Simulation simulation) : base("Resume")
+        public SpeedUpCommand(Simulation simulation) : base("SpeedUp")
         {
             _simulation = simulation;
         }
 
         public override void Execute()
         {
-            _simulation.Resume();
+            _simulation.SpeedUp();
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Threading;
 using GalaxyLib.AppCommands;
 using GalaxyLib.Collision;
+using GalaxyLib.Memento;
 using GalaxyLib.Model;
 using GalaxyLib.Movement;
 using GalaxyLib.Msg;
@@ -17,10 +18,10 @@ namespace GalaxyLib
         public string PayloadLocation { get; set; }
         public IParseStrategy ParseStrategy { get; set; }
         public IFileStrategy FileStrategy { get; set; }
-        
         public MovementContext MovementContext { get; set; }
-
         public CollisionContext CollisionContext { get; set; }
+
+        public GalaxyCareTaker GalaxyCareTaker { get; set;}
 
         private static Simulation _instance;
         private static object _lock = new object();
@@ -29,6 +30,12 @@ namespace GalaxyLib
         
         private const int FPS = 60;
         private int _msPerTick;
+
+        // Game Rate is the rate at which the game executes
+        // Game Rate at 1 is half the fps.
+        // Game Rate at 2 is 1/4 the fps.
+
+        private int _gameRate = 1;
 
         private Simulation()
         {   
@@ -75,7 +82,7 @@ namespace GalaxyLib
 
                 if (!_paused)
                 {
-                    if (count == 1)
+                    if (count >= _gameRate)
                     {
                         Galaxy.Notify();
                         count = 0;
@@ -100,16 +107,21 @@ namespace GalaxyLib
             _running = false;
         }
 
-        public void Pause()
+        public void TogglePause()
         {
-            if (!_paused) 
-                _paused = true;
+            _paused = !_paused;
         }
 
-        public void Resume()
+        public void SpeedUp()
         {
-            if (_paused)
-                _paused = false;
+            if (_gameRate > 0)
+                _gameRate--;
+        }
+
+        public void SpeedDown()
+        {
+            if (_gameRate < 10)
+                _gameRate++;
         }
     }
 }

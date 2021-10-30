@@ -1,21 +1,22 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace GalaxyLib.AppCommands
 {
-    public class PauseCommand : AppCommand
+    public class SpeedDownCommand : AppCommand
     {
         private readonly Simulation _simulation;
 
-        public PauseCommand(Simulation simulation) : base("Pause")
+        public SpeedDownCommand(Simulation simulation) : base("SpeedDown")
         {
             _simulation = simulation;
         }
 
         public override void Execute()
         {
-            _simulation.TogglePause();
+            _simulation.SpeedDown();
         }
     }
 }

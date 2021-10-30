@@ -14,8 +14,10 @@ namespace GalaxyLib.AppCommands
         {
             // default gesture map
             GestureDictionary = new Dictionary<string, Tuple<string, AppCommand>>();
-            SetGesture("Resume", "R", new ResumeCommand(sim));
+            SetGesture("SpeedUp", "A", new SpeedUpCommand(sim));
+            SetGesture("SpeedDown", "S", new SpeedDownCommand(sim));
             SetGesture("Pause", "P", new PauseCommand(sim));
+            SetGesture("Bookmark", "B", new RevertCommand(sim));
         }
 
         public void SetGesture(string feature, string gesture, AppCommand command)
