@@ -1,6 +1,4 @@
-﻿using GalaxyLib.Model;
-
-namespace GalaxyLib.State.BodyStates
+﻿namespace GalaxyLib.State.BodyStates
 {
     public class GrowState : BaseBodyState
     {

@@ -2,7 +2,6 @@
 using GalaxyLib.Model;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace GalaxyLib.State.BodyStates
 {
@@ -28,7 +27,7 @@ namespace GalaxyLib.State.BodyStates
                 var radius = rand.Next(7, 15);
                 var colorValues = Enum.GetValues(typeof(Colors));
                 var colorIndex = rand.Next(0, colorValues.Length - 1);
-                var color = (Colors) colorValues.GetValue(colorIndex);
+                var color = (Colors)colorValues.GetValue(colorIndex);
 
 
                 ICelestialBody body;
@@ -41,7 +40,8 @@ namespace GalaxyLib.State.BodyStates
                         newVx,
                         newVy,
                         "bounce");
-                } else
+                }
+                else
                 {
                     body = _buildDirector.BuildPlanet(
                         $"Frits {i}",

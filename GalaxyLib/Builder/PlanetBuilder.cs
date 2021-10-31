@@ -1,11 +1,10 @@
 using GalaxyLib.Model;
-using GalaxyLib.State;
 
-namespace GalaxyLib.Builder 
+namespace GalaxyLib.Builder
 {
     public class PlanetBuilder : BaseBodyBuilder
     {
-        public PlanetBuilder()
+        public PlanetBuilder(Galaxy parent) : base(parent)
         {
             Current = new Planet();
             Current.Type = typeof(Planet);
@@ -13,7 +12,7 @@ namespace GalaxyLib.Builder
 
         public override ICelestialBodyBuilder SetName(string name)
         {
-            ((Planet) Current).Name = name;
+            ((Planet)Current).Name = name;
 
             return this;
         }

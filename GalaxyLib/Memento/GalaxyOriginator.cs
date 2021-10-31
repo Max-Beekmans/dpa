@@ -1,17 +1,17 @@
 ﻿using GalaxyLib.Model;
+using GalaxyLib.Msg;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace GalaxyLib.Memento
 {
     public class GalaxyOriginator : IOriginator
     {
-        private List<ICelestialBody> _state;
+        private Galaxy _state;
 
-        public GalaxyOriginator(List<ICelestialBody> state)
+        public GalaxyOriginator(Galaxy galaxy)
         {
-            _state = state;
+            _state = galaxy;
         }
 
         public void Restore(IMemento memento)
@@ -21,12 +21,12 @@ namespace GalaxyLib.Memento
                 throw new Exception($"Unknown memento class {memento}");
             }
 
-            _state = galaxyMemento.GetState();
+            _state.Bodies = galaxyMemento.GetState();
         }
 
         public IMemento Save()
         {
-            return new GalaxyMemento(_state);
+            return new GalaxyMemento(_state.DeepCopy().Bodies);
         }
     }
 }

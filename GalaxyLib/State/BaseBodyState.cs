@@ -1,9 +1,4 @@
-﻿using GalaxyLib.Model;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GalaxyLib.State
+﻿namespace GalaxyLib.State
 {
     public abstract class BaseBodyState : IState
     {

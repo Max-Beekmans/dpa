@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading;
-using GalaxyLib.AppCommands;
+﻿using GalaxyLib.AppCommands;
 using GalaxyLib.Collision;
 using GalaxyLib.Memento;
 using GalaxyLib.Model;
@@ -8,6 +6,8 @@ using GalaxyLib.Movement;
 using GalaxyLib.Msg;
 using GalaxyLib.Parser;
 using GalaxyLib.PayloadStrategy;
+using System;
+using System.Threading;
 
 namespace GalaxyLib
 {
@@ -21,13 +21,13 @@ namespace GalaxyLib
         public MovementContext MovementContext { get; set; }
         public CollisionContext CollisionContext { get; set; }
 
-        public GalaxyCareTaker GalaxyCareTaker { get; set;}
+        public GalaxyCareTaker GalaxyCareTaker { get; set; }
 
         private static Simulation _instance;
         private static object _lock = new object();
         private static bool _running = true;
         private static bool _paused = false;
-        
+
         private const int FPS = 60;
         private int _msPerTick;
 
@@ -38,15 +38,14 @@ namespace GalaxyLib
         private int _gameRate = 1;
 
         private Simulation()
-        {   
-            KeyMap = new KeyMap(this);
+        {
             double tick = 1000 / FPS;
-            _msPerTick = (int) Math.Round(tick);
+            _msPerTick = (int)Math.Round(tick);
         }
 
         public static Simulation GetInstance()
         {
-            lock(_lock)
+            lock (_lock)
             {
                 if (_instance != null) return _instance;
 
@@ -73,10 +72,13 @@ namespace GalaxyLib
             CollisionContext = new CollisionContext(new NaiveCollision());
             Galaxy.Attach(MovementContext);
             Galaxy.Attach(CollisionContext);
+            GalaxyCareTaker = new GalaxyCareTaker(new GalaxyOriginator(Galaxy));
+            KeyMap = new KeyMap(this);
 
             var count = 0;
+            var msPassed = 0;
 
-            while(_running)
+            while (_running)
             {
                 var start = DateTime.UtcNow;
 
@@ -86,10 +88,17 @@ namespace GalaxyLib
                     {
                         Galaxy.Notify();
                         count = 0;
-                    } else
+                    }
+                    else
                     {
                         count++;
                     }
+                }
+
+                if (msPassed >= 5000)
+                {
+                    GalaxyCareTaker.Bookmark();
+                    msPassed = 0;
                 }
 
                 var dt = DateTime.UtcNow - start;
@@ -98,6 +107,8 @@ namespace GalaxyLib
 
                 if (sleep > 0)
                     Thread.Sleep(sleep);
+
+                msPassed += _msPerTick;
             }
         }
 

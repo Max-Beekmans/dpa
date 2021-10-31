@@ -1,4 +1,7 @@
-﻿using System;
+﻿using GalaxyLib;
+using GalaxyLib.Model;
+using GalaxyLib.Msg;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -7,9 +10,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using GalaxyLib;
-using GalaxyLib.Model;
-using GalaxyLib.Msg;
 
 namespace GalaxyWindow
 {
@@ -46,9 +46,10 @@ namespace GalaxyWindow
         {
             //var galaxy = _sim.Galaxy.Bodies.ToList();
             var bodyIds = new List<Guid>(galaxy.Bodies.Select(x => x.Id).ToList());
+            var bodies = galaxy.Bodies;
             _ellipses = new List<Ellipse>();
 
-            foreach (var body in galaxy.Bodies)
+            foreach (var body in bodies)
             {
                 SolidColorBrush brush;
 
@@ -140,7 +141,7 @@ namespace GalaxyWindow
 
         public void Update(ISubject subject)
         {
-            var galaxy = (Galaxy) subject;
+            var galaxy = (Galaxy)subject;
             Dispatcher.BeginInvoke(new Action(() =>
             {
                 DrawGalaxy(galaxy);

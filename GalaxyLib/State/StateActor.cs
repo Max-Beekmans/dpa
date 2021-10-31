@@ -4,7 +4,7 @@ namespace GalaxyLib.State
     {
         public StateContext StateContext { get; set; }
 
-        public StateActor() {}
+        public StateActor() { }
 
         public StateActor(StateContext stateContext)
         {

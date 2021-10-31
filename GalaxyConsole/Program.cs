@@ -1,10 +1,9 @@
-﻿using System;
-using System.Threading;
-using GalaxyLib;
-using GalaxyLib.Msg;
+﻿using GalaxyLib;
 using GalaxyLib.Parser;
 using GalaxyLib.PayloadStrategy;
 using GalaxyWindow;
+using System;
+using System.Threading;
 
 namespace GalaxyConsole
 {
@@ -21,9 +20,9 @@ namespace GalaxyConsole
             const string xmlFileLocation = "./input/planets.xml";
 
             var sim = Simulation.GetInstance();
-            sim.PayloadLocation = csvFileLocation;
+            sim.PayloadLocation = xmlFileLocation;
             sim.FileStrategy = new DriveFileStrategy();
-            sim.ParseStrategy = new CsvParser();
+            sim.ParseStrategy = new XmlParser();
 
             _simThread = new Thread(sim.Start) { IsBackground = false, Name = "SimulationThread" };
             _simThread.Start();

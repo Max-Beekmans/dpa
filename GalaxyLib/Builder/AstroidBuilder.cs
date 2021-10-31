@@ -1,13 +1,12 @@
 using GalaxyLib.Model;
-using GalaxyLib.State;
 
 namespace GalaxyLib.Builder
 {
     public class AsteroidBuilder : BaseBodyBuilder
     {
-        public AsteroidBuilder()
+        public AsteroidBuilder(Galaxy parent) : base(parent)
         {
-            Current = new Asteroid {Type = typeof(Asteroid)};
+            Current = new Asteroid { Type = typeof(Asteroid) };
         }
 
         public override ICelestialBodyBuilder SetName(string name)

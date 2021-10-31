@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace GalaxyLib.Collision
 {
-    public class CollisionContext: IObserver
+    public class CollisionContext : IObserver
     {
         private ICollisionStrategy _collisionStrategy;
         private List<IStateActor> _collided;

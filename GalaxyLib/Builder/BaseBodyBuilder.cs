@@ -1,6 +1,6 @@
-using System;
 using GalaxyLib.Model;
 using GalaxyLib.State;
+using System;
 
 namespace GalaxyLib.Builder
 {
@@ -8,13 +8,20 @@ namespace GalaxyLib.Builder
     {
         protected ICelestialBody Current { get; set; }
 
+        private Galaxy _galaxy { get; set; }
+
+        protected BaseBodyBuilder(Galaxy parent)
+        {
+            _galaxy = parent;
+        }
+
         public abstract ICelestialBodyBuilder SetName(string name);
 
-        public ICelestialBodyBuilder BuildStateContext(Galaxy galaxy, string startState)
+        public ICelestialBodyBuilder BuildStateContext(string startState)
         {
             var stateActor = (IStateActor)Current;
 
-            stateActor.Context = new StateContext(stateActor, startState, galaxy);
+            stateActor.Context = new StateContext(stateActor, startState, _galaxy);
 
             return this;
         }
@@ -26,30 +33,35 @@ namespace GalaxyLib.Builder
             return this;
         }
 
-        public ICelestialBody GetResult() {
+        public ICelestialBody GetResult()
+        {
             return Current;
         }
-        
-        public virtual ICelestialBodyBuilder SetColor(string color) {
+
+        public virtual ICelestialBodyBuilder SetColor(string color)
+        {
             Current.Color = color;
 
             return this;
         }
 
-        public virtual ICelestialBodyBuilder SetCoords(double xpos, double ypos) {
+        public virtual ICelestialBodyBuilder SetCoords(double xpos, double ypos)
+        {
             Current.XPos = xpos;
             Current.YPos = ypos;
 
             return this;
         }
 
-        public virtual ICelestialBodyBuilder SetRadius(int radius) {
+        public virtual ICelestialBodyBuilder SetRadius(int radius)
+        {
             Current.Radius = radius;
 
             return this;
         }
 
-        public virtual ICelestialBodyBuilder SetSpeed(double vx, double vy) {
+        public virtual ICelestialBodyBuilder SetSpeed(double vx, double vy)
+        {
             Current.Vx = vx;
             Current.Vy = vy;
 

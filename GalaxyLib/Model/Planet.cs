@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace GalaxyLib.Model
@@ -7,7 +6,7 @@ namespace GalaxyLib.Model
     {
         public string Name { get; set; }
 
-        public List<Planet> Neighbours { get; set;}
+        public List<Planet> Neighbours { get; set; }
 
         public Planet()
         {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GalaxyLib.Msg
+﻿namespace GalaxyLib.Msg
 {
     public interface IObserver
     {

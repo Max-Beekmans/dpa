@@ -1,4 +1,3 @@
-using GalaxyLib.Builder;
 using GalaxyLib.Model;
 using GalaxyLib.State.BodyStates;
 using System;
@@ -20,7 +19,7 @@ namespace GalaxyLib.State
             var explode = new ExplodeState(this, actor, galaxy);
             var grow = new GrowState(this, actor);
             var otherColor = new OtherColorState(this, actor);
-            
+
             _stateDictionary = new Dictionary<string, IState>
             {
                 { blink.Name, blink },
@@ -39,7 +38,8 @@ namespace GalaxyLib.State
             if (_stateDictionary.TryGetValue(state, out var stateObj))
             {
                 State = stateObj;
-            } else
+            }
+            else
             {
                 Console.WriteLine("Couldn't find state");
             }

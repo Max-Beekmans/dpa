@@ -1,7 +1,6 @@
 ﻿using GalaxyLib.Model;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace GalaxyLib.Collision
 {
@@ -20,7 +19,7 @@ namespace GalaxyLib.Collision
                 var dy = body.YPos + body.Radius - (otherBody.YPos + otherBody.Radius);
                 var distance = Math.Sqrt(dx * dx + dy * dy);
 
-                if(distance < body.Radius + otherBody.Radius)
+                if (distance < body.Radius + otherBody.Radius)
                 {
                     collidedBody = otherBody;
                     return true;

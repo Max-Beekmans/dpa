@@ -1,25 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MaxBe\\Documents\\GitHub\\dpa\\GalaxyWindow\\GalaxyWindow.csproj": {}
+    "C:\\Users\\mxb\\Documents\\repos\\dpa\\GalaxyWindow\\GalaxyWindow.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MaxBe\\Documents\\GitHub\\dpa\\GalaxyLib\\GalaxyLib.csproj": {
+    "C:\\Users\\mxb\\Documents\\repos\\dpa\\GalaxyLib\\GalaxyLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MaxBe\\Documents\\GitHub\\dpa\\GalaxyLib\\GalaxyLib.csproj",
+        "projectUniqueName": "C:\\Users\\mxb\\Documents\\repos\\dpa\\GalaxyLib\\GalaxyLib.csproj",
         "projectName": "GalaxyLib",
-        "projectPath": "C:\\Users\\MaxBe\\Documents\\GitHub\\dpa\\GalaxyLib\\GalaxyLib.csproj",
-        "packagesPath": "C:\\Users\\MaxBe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MaxBe\\Documents\\GitHub\\dpa\\GalaxyLib\\obj\\",
+        "projectPath": "C:\\Users\\mxb\\Documents\\repos\\dpa\\GalaxyLib\\GalaxyLib.csproj",
+        "packagesPath": "C:\\Users\\mxb\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mxb\\Documents\\repos\\dpa\\GalaxyLib\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\MaxBe\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\mxb\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -59,26 +54,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\MaxBe\\Documents\\GitHub\\dpa\\GalaxyWindow\\GalaxyWindow.csproj": {
+    "C:\\Users\\mxb\\Documents\\repos\\dpa\\GalaxyWindow\\GalaxyWindow.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MaxBe\\Documents\\GitHub\\dpa\\GalaxyWindow\\GalaxyWindow.csproj",
+        "projectUniqueName": "C:\\Users\\mxb\\Documents\\repos\\dpa\\GalaxyWindow\\GalaxyWindow.csproj",
         "projectName": "GalaxyWindow",
-        "projectPath": "C:\\Users\\MaxBe\\Documents\\GitHub\\dpa\\GalaxyWindow\\GalaxyWindow.csproj",
-        "packagesPath": "C:\\Users\\MaxBe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MaxBe\\Documents\\GitHub\\dpa\\GalaxyWindow\\obj\\",
+        "projectPath": "C:\\Users\\mxb\\Documents\\repos\\dpa\\GalaxyWindow\\GalaxyWindow.csproj",
+        "packagesPath": "C:\\Users\\mxb\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mxb\\Documents\\repos\\dpa\\GalaxyWindow\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\MaxBe\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\mxb\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -92,8 +82,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\MaxBe\\Documents\\GitHub\\dpa\\GalaxyLib\\GalaxyLib.csproj": {
-                "projectPath": "C:\\Users\\MaxBe\\Documents\\GitHub\\dpa\\GalaxyLib\\GalaxyLib.csproj"
+              "C:\\Users\\mxb\\Documents\\repos\\dpa\\GalaxyLib\\GalaxyLib.csproj": {
+                "projectPath": "C:\\Users\\mxb\\Documents\\repos\\dpa\\GalaxyLib\\GalaxyLib.csproj"
               }
             }
           }
@@ -125,7 +115,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

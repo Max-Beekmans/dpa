@@ -1,8 +1,8 @@
-﻿using System;
+﻿using GalaxyLib.Msg;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using GalaxyLib.Msg;
 
 namespace GalaxyLib.AppCommands
 {
@@ -17,7 +17,7 @@ namespace GalaxyLib.AppCommands
             SetGesture("SpeedUp", "A", new SpeedUpCommand(sim));
             SetGesture("SpeedDown", "S", new SpeedDownCommand(sim));
             SetGesture("Pause", "P", new PauseCommand(sim));
-            SetGesture("Bookmark", "B", new RevertCommand(sim));
+            SetGesture("Bookmark", "B", new RevertCommand(sim.GalaxyCareTaker));
         }
 
         public void SetGesture(string feature, string gesture, AppCommand command)
@@ -37,7 +37,7 @@ namespace GalaxyLib.AppCommands
 
             SetGesture(feature, gesture, cmd);
         }
-        
+
         public void GesturePressed(string gesture)
         {
             var cmd = GestureDictionary.Where(x => x.Value.Item1.Equals(gesture, StringComparison.InvariantCultureIgnoreCase))
@@ -64,7 +64,7 @@ namespace GalaxyLib.AppCommands
 
             dt.Columns.Add(commandCol);
             dt.Columns.Add(gestureCol);
-            
+
             foreach (var (feature, gesture) in map.GestureDictionary)
             {
                 var dr = dt.NewRow();

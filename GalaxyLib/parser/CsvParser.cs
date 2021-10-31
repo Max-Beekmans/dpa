@@ -1,7 +1,7 @@
-using System.Collections.Generic;
-using System.Globalization;
 using GalaxyLib.Builder;
 using GalaxyLib.Model;
+using System.Collections.Generic;
+using System.Globalization;
 
 namespace GalaxyLib.Parser
 {
@@ -97,7 +97,7 @@ namespace GalaxyLib.Parser
             if (columnIndices.TryGetValue("color", out var colorIndex))
                 color = line[colorIndex];
 
-            switch(type.ToLower())
+            switch (type.ToLower())
             {
                 case "planet":
                     BuildDirector.BuildPlanet(name, xpos, ypos, vx, vy, onCollision, radius, color, neighbours);
@@ -125,7 +125,7 @@ namespace GalaxyLib.Parser
         {
             foreach (var body in bodyList)
             {
-                
+
             }
         }
     }

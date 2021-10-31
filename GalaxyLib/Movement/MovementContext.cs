@@ -1,5 +1,4 @@
-﻿using GalaxyLib.Collision;
-using GalaxyLib.Model;
+﻿using GalaxyLib.Model;
 using GalaxyLib.Msg;
 
 namespace GalaxyLib.Movement
@@ -12,7 +11,7 @@ namespace GalaxyLib.Movement
             {
                 foreach (var body in galaxy.Bodies)
                 {
-                    IMovementActor actor = (IMovementActor) body;
+                    IMovementActor actor = (IMovementActor)body;
 
                     if (body.XPos <= 0 || body.XPos >= 800)
                         actor.BounceOfVertical();

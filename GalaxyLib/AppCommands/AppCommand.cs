@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GalaxyLib.AppCommands
+﻿namespace GalaxyLib.AppCommands
 {
     public abstract class AppCommand : ICommand
     {

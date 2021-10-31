@@ -1,7 +1,7 @@
+using GalaxyLib.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using GalaxyLib.Model;
 
 namespace GalaxyLib.Builder
 {
@@ -15,7 +15,8 @@ namespace GalaxyLib.Builder
 
         private List<ICelestialBody> _bodies;
 
-        public BuildDirector() {
+        public BuildDirector()
+        {
             _neighbourList = new List<Tuple<Planet, List<string>>>();
             _bodies = new List<ICelestialBody>();
             _galaxy = new Galaxy();
@@ -60,7 +61,7 @@ namespace GalaxyLib.Builder
                 List<string> neighbours
             )
         {
-            ChangeBuilder(new PlanetBuilder());
+            ChangeBuilder(new PlanetBuilder(_galaxy));
 
             _builder.SetId()
                 .SetCoords(xpos, ypos)
@@ -68,7 +69,7 @@ namespace GalaxyLib.Builder
                 .SetName(name)
                 .SetRadius(radius)
                 .SetColor(color)
-                .BuildStateContext(_galaxy, startState);
+                .BuildStateContext(startState);
 
             var planet = (Planet)_builder.GetResult();
 
@@ -86,7 +87,7 @@ namespace GalaxyLib.Builder
                 double vy,
                 string startState)
         {
-            ChangeBuilder(new AsteroidBuilder());
+            ChangeBuilder(new AsteroidBuilder(_galaxy));
 
             var asteroidBuilderRef = (AsteroidBuilder)_builder;
 
@@ -96,12 +97,12 @@ namespace GalaxyLib.Builder
             _builder.SetId()
                 .SetCoords(xpos, ypos)
                 .SetSpeed(vx, vy)
-                .BuildStateContext(_galaxy, startState);
-            
+                .BuildStateContext(startState);
+
             var asteroid = (Asteroid)_builder.GetResult();
 
             _bodies.Add(asteroid);
-            
+
             return asteroid;
         }
 

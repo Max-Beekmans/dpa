@@ -1,5 +1,3 @@
-using GalaxyLib.Model;
-
 namespace GalaxyLib.State
 {
     public interface IState

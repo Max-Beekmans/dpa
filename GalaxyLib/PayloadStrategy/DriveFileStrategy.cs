@@ -9,7 +9,8 @@ namespace GalaxyLib.PayloadStrategy
             try
             {
                 return System.IO.File.ReadAllText(location);
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 return null;
             }

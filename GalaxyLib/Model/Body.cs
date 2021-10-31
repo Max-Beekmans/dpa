@@ -1,6 +1,6 @@
-using System;
 using GalaxyLib.Movement;
 using GalaxyLib.State;
+using System;
 
 namespace GalaxyLib.Model
 {
@@ -22,36 +22,13 @@ namespace GalaxyLib.Model
 
         public Type Type { get; set; }
 
+        public Galaxy Parent { get; set; }
+
         public StateContext Context { get; set; }
 
         public ICelestialBody ActorBody { get => this; }
 
         public ICelestialBody MovementActor { get => this; }
-
-        protected Body()
-        {
-        }
-
-        protected Body(
-            int xpos,
-            int ypos,
-            double vx,
-            double vy,
-            int radius,
-            StateContext stateContext,
-            string color,
-            Type type
-        )
-        {
-            XPos = xpos;
-            YPos = ypos;
-            Vx = vx;
-            Vy = vy;
-            Radius = radius;
-            Context = stateContext;
-            Color = color;
-            Type = type;
-        }
 
         public void Move()
         {

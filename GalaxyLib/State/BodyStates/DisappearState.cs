@@ -1,7 +1,4 @@
 ﻿using GalaxyLib.Model;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GalaxyLib.State.BodyStates
 {

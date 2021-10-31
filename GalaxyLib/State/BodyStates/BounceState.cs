@@ -1,6 +1,3 @@
-using GalaxyLib.Model;
-using System;
-
 namespace GalaxyLib.State
 {
     public class BounceState : BaseBodyState

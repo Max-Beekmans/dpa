@@ -42,3 +42,9 @@ C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyWindow\obj\Debug\netcoreapp3.1\KeyConf
 C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyWindow\obj\Debug\netcoreapp3.1\GalaxyWindow_MarkupCompile.lref
 C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyWindow\obj\Debug\netcoreapp3.1\KeyConfigWindow.baml
 C:\Users\MaxBe\Documents\GitHub\dpa\GalaxyWindow\obj\Debug\netcoreapp3.1\GalaxyWindow.csproj.CopyComplete
+C:\Users\mxb\Documents\repos\dpa\GalaxyWindow\bin\Debug\netcoreapp3.1\GalaxyLib.dll
+C:\Users\mxb\Documents\repos\dpa\GalaxyWindow\bin\Debug\netcoreapp3.1\GalaxyLib.pdb
+C:\Users\mxb\Documents\repos\dpa\GalaxyWindow\obj\Debug\netcoreapp3.1\KeyConfigWindow.g.cs
+C:\Users\mxb\Documents\repos\dpa\GalaxyWindow\obj\Debug\netcoreapp3.1\GalaxyWindow_MarkupCompile.lref
+C:\Users\mxb\Documents\repos\dpa\GalaxyWindow\obj\Debug\netcoreapp3.1\KeyConfigWindow.baml
+C:\Users\mxb\Documents\repos\dpa\GalaxyWindow\obj\Debug\netcoreapp3.1\GalaxyWindow.csproj.CopyComplete
